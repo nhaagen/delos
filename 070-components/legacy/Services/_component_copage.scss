@@ -279,16 +279,10 @@ div.ilTinyMenuSection, .il-copg-button-group {
 		padding: 2px 5px;
 		background-color: darken($il-main-dark-bg, 4%);
 	}
-
-	@media only screen and (max-width: $il-grid-float-breakpoint-max) {
-		height: 28px;
-		margin: 3px 3px 3px 0px;
-		padding: 0 10px 0 0;
-		border-right: 0 none;
-	}
 }
 
 div.ilTinyMenuSection button.btn {
+	display: inline-block;
 	background: $il-main-bg;
 	border: 0;
 	color: black;
@@ -306,12 +300,6 @@ div.il-copg-button-group-wide {
 #ilTinyMenuButtons {
 	padding-bottom: 15px;
 	zoom:1;
-	@media only screen and (max-width: $il-grid-float-breakpoint-max) {
-		height: 28px;
-		margin: 3px 3px 3px 0;
-		padding: 0 10px 0 0;
-		border-right: 0 none;
-	}
 }
 
 #iltinymenu .bd div.last {
@@ -414,17 +402,17 @@ li.ilc_page_toc_PageTOCItem {
 }
 
 a.ilc_page_toc_PageTOCLink {
-	color: #03a;
+	color: $il-link-color;
 	font-weight: normal;
 	text-decoration: none;
 }
 
 a.ilc_page_toc_PageTOCLink:hover {
-	color: black;
+	color: $il-link-hover-color;
 }
 
 a.ilc_page_toc_PageTOCLink:visited {
-	color: blue;
+	color: $il-extended-color-6;
 }
 
 /* --- content styles (will move to content.css) --- */
@@ -554,6 +542,8 @@ a.nostyle:hover {
 }
 
 #ilPageEditLegend {
+	padding-left: $il-padding-xlarge-horizontal;
+	padding-right: $il-padding-xlarge-horizontal;
 	margin: 10px 0;
 	> div {
 		margin: 5px 0;
@@ -736,6 +726,12 @@ div.ilCOPGMediaPrint {
 		}
 	}
 
+	h3.ilTinyInfo {
+		font-size: $il-font-size-large;
+		margin-top: $il-margin-xxxlarge-vertical;
+		margin-bottom: $il-margin-large-vertical;
+	}
+
 	div.alert {
 		margin: 10px 0;
 	}
@@ -768,8 +764,13 @@ div.ilCOPGMediaPrint {
 	}
 }
 
+#copg-table-top-actions,
 #copg-top-actions {
 	padding: 0 $il-padding-xlarge-horizontal;
+}
+
+#copg-table-top-actions .il-viewcontrol-mode {
+	margin-top: $il-margin-xxlarge-vertical;
 }
 
 .copg-edit-button-group {
@@ -796,6 +797,7 @@ p#copg-auto-save {
 	> .dropdown {
 		overflow: hidden;
 		position: static;
+		display: block;
 		> ul {
 			position: absolute;
 			z-index: 10;

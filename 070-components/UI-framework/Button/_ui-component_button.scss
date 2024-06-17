@@ -28,10 +28,6 @@
 
 //== Buttons
 
-//** Colors of engaged buttons
-$il-engaged-btn-color: s.$il-text-color;
-$il-engaged-btn-bg: white;
-
 $input-min-height-large: s-form.$il-input-min-height * 1.8;
 
 //** many variables can be found on settings layer
@@ -71,10 +67,15 @@ input.btn {
     $disabled_text-color: s.$il-disabled-btn-color,
     $disabled_border-color: s.$il-disabled-btn-border,
     
-    $engaged_bg-color: $il-engaged-btn-bg,
-    $engaged_text-color: $il-engaged-btn-color,
+    $engaged_bg-color: s.$il-engaged-btn-bg,
+    $engaged_text-color: s.$il-engaged-btn-color,
     $engaged_border-color: s.$il-btn-standard-border,
     $engaged_border-width: 1px);
+}
+
+.navbar-form > a {
+  @extend .btn;
+  @extend .btn-default;
 }
 
 .btn-primary {
@@ -89,8 +90,8 @@ input.btn {
     $disabled_text-color: s.$il-disabled-btn-color,
     $disabled_border-color: s.$il-disabled-btn-border,
     
-    $engaged_bg-color: $il-engaged-btn-bg,
-    $engaged_text-color: $il-engaged-btn-color,
+    $engaged_bg-color: s.$il-engaged-btn-bg,
+    $engaged_text-color: s.$il-engaged-btn-color,
     $engaged_border-color: s.$il-btn-primary-border,
     $engaged_border-width: 1px);
 }
@@ -111,6 +112,14 @@ input.btn {
     box-shadow: none;
   }
 }
+
+.ilTableNav > table > tbody > tr > td {
+  > .btn-group > .btn-link,
+  > .dropdown > .btn-default {
+    @extend .btn-ctrl;
+    margin-left: l.$il-margin-xs-horizontal;
+  }
+} 
 
 // ILIAS doesn't use btn-success, btn-info, btn-warning, btn-danger
 
@@ -155,7 +164,7 @@ input.btn {
     }
   }
   &.engaged {
-    color: $il-engaged-btn-color;
+    color: s.$il-engaged-btn-color;
     background-color: s.$il-highlight-bg;
   }
 }
@@ -165,13 +174,8 @@ input.btn {
 //
 
 // base styling for all
-.il-link.link-bulky,
-.il-drilldown .menulevel {
-  @extend .btn;
-}
-.btn-bulky,
-.il-link.link-bulky,
-.il-drilldown .menulevel {
+
+.btn-bulky {
 	@include make-button($set-basics: false, $set-design: true,
     $button-color: s.$il-bulky-bg-color,
     $text-color: s.$il-bulky-text-color,
@@ -199,6 +203,12 @@ input.btn {
   @include f.il-focus-border-only();
 }
 
+.il-link.link-bulky,
+.il-drilldown .menulevel {
+  @extend .btn;
+  @extend .btn-bulky;
+}
+
 // same visual design for bulky buttons and links in slate and drilldown
 .il-maincontrols-slate,
 .il-drilldown {
@@ -210,11 +220,6 @@ input.btn {
       text-align: left;
     }
   }
-}
-.il-drilldown .menulevel {
-  justify-content: space-between;
-  text-align: left;
-  margin-bottom: l-spage.$il-slate-content-spacing;
 }
 
 // Button Sizes
@@ -268,6 +273,8 @@ button > .glyphicon {
   font-weight: s.$il-font-weight-bold;
   line-height: 1;
   color: s.$il-neutral-light-color;
+  background-color: transparent;
+  border: 0;
 
   &:hover,
   &:focus {

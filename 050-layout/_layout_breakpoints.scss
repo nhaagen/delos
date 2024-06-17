@@ -48,3 +48,16 @@ $grid-breakpoints: (
     xxl: 1400px) !default;
 
 // end of section based on bootstrap 3
+
+// note that this excludes print!
+@mixin on-screen-size($size) {
+  @if $size == small {
+    @media screen and (max-width: $screen-sm) { @content; };
+  } @else if $size == medium {
+    @media screen and (min-width: $screen-sm + 1px) { @content; };
+  } @else if $size == large {
+    @media screen and (min-width: $screen-md + 1px) { @content; };
+  } @else {
+    @error("Invalid input for on-screen-size mixin.");
+  }
+}

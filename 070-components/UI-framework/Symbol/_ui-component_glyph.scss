@@ -1,7 +1,7 @@
 @use "../../../010-settings/" as *;
 @use "../../../050-layout/basics" as *;
 
-$il-icon-font-path: "./fonts/bootstrap/";
+$il-icon-font-path: "../fonts/bootstrap/";
 $il-glyph-color: $il-link-color;
 $il-glyph-hover-color: $il-link-hover-color;
 $il-glyph-highlighted-color: $il-warning-color;
@@ -476,6 +476,18 @@ $icon-font-svg-id:        "glyphicons_halflingsregular" !default;
 .glyphicon-triangle-left:before {
 	font-family: il-icons;
 	content: "\e605";
+}
+.glyphicon-apply:before {
+  font-family: il-icons;
+  content: "\e90c";
+}
+.glyphicon-launch:before {
+  font-family: il-icons;
+  content: "\e05c";
+}
+.glyphicon-reset:before {
+  font-family: il-icons;
+  content: "\e90a";
 }
 // change glyphs only for metabar entries
 .glyphicon-user:before {

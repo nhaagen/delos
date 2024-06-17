@@ -1,5 +1,10 @@
+@use "../../../010-settings/"as *;
 @use "../../../010-settings/legacy-settings/legacy-settings_form" as *;
 @use "../../../050-layout/basics" as *;
+
+//== InfoScreen
+//
+//##
 
 .ilInfoScreenSec:not(:first-child) .ilFormHeader {
 	margin: $il-standard-form-header-margin;
@@ -7,10 +12,14 @@
 }
 
 .il_InfoScreenPropertyValue{
-	padding-top: calc($il-padding-base-vertical + 1px);
-	padding-bottom: calc($il-padding-base-vertical + 1px);
 
 	.ilProfile {
 		margin: 0;
+	}
+
+	.breadcrumb {
+		padding: 0;
+		margin: 0;
+		font-size: $il-font-size-base;
 	}
 }
